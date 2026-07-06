@@ -19,18 +19,19 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     import os
     # Auto-migrate/add detected_industry column if it's missing in SQLite/Postgres
-    try:
-        from backend.db.session import engine
-        from sqlalchemy import inspect, text
-        inspector = inspect(engine)
-        columns = [c["name"] for c in inspector.get_columns("analysis")]
-        if "detected_industry" not in columns:
-            logger.info("Migrating database: Adding detected_industry column to analysis table...")
-            with engine.begin() as conn:
-                conn.execute(text("ALTER TABLE analysis ADD COLUMN detected_industry VARCHAR(100)"))
-            logger.info("Database migration completed successfully.")
-    except Exception as migration_err:
-        logger.error(f"Failed to auto-migrate database table: {migration_err}")
+    if not ("PYTEST_CURRENT_TEST" in os.environ or os.getenv("TESTING") == "True"):
+        try:
+            from backend.db.session import engine
+            from sqlalchemy import inspect, text
+            inspector = inspect(engine)
+            columns = [c["name"] for c in inspector.get_columns("analysis")]
+            if "detected_industry" not in columns:
+                logger.info("Migrating database: Adding detected_industry column to analysis table...")
+                with engine.begin() as conn:
+                    conn.execute(text("ALTER TABLE analysis ADD COLUMN detected_industry VARCHAR(100)"))
+                logger.info("Database migration completed successfully.")
+        except Exception as migration_err:
+            logger.error(f"Failed to auto-migrate database table: {migration_err}")
 
     # Seed default users (only in non-testing environments)
     if not ("PYTEST_CURRENT_TEST" in os.environ or os.getenv("TESTING") == "True"):
