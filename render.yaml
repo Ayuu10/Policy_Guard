@@ -21,10 +21,7 @@ services:
         value: uploads
       - key: MAX_UPLOAD_SIZE_MB
         value: "10"
-    disk:
-      name: backend-uploads
-      mountPath: /app/uploads
-      sizeGB: 1
+
 
   # 2. React Nginx Frontend Web Service
   - type: web
