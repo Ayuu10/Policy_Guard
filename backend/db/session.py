@@ -3,6 +3,7 @@ import logging
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
 from backend.core.config import settings
+from sqlalchemy.pool import StaticPool
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +13,12 @@ engine = None
 is_testing = "PYTEST_CURRENT_TEST" in os.environ or os.getenv("TESTING") == "True"
 
 if is_testing:
-    engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
+    # engine = create_engine("sqlite:///:memory:", connect_args={"check_same_thread": False})
+    engine = create_engine(
+        "sqlite://",
+        connect_args={"check_same_thread": False},
+        poolclass=StaticPool,
+    )
 else:
     if db_url.startswith("postgresql"):
         try:
