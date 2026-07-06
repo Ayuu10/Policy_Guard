@@ -1,0 +1,9 @@
+{
+  "compliant": [
+    "Credit card transactions and card details are encrypted using strong algorithms.",
+    "We use TLS 1.2 to secure data transmission."
+  ],
+  "non_compliant": [
+    "We save card CVV numbers and transmit them using md5 hashing."
+  ]
+}

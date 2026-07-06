@@ -1,0 +1,47 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env
+*.env
+backend/.env
+
+# Databases
+*.db
+*.sqlite
+policyguard.db
+test.db
+backend/vector_store.db
+
+# User Uploads
+backend/uploads/
+uploads/
+
+# Node dependencies and build folders
+node_modules/
+dist/
+build/
+.eslintcache
+
+# OS/System files
+.DS_Store
+Thumbs.db
+
+# IDE configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/

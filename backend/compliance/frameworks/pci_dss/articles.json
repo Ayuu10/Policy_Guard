@@ -1,0 +1,20 @@
+[
+  {
+    "id": "PCI_REQ_3",
+    "title": "Protect stored cardholder data",
+    "regulation": "PCI DSS",
+    "article": "Requirement 3",
+    "category": "Cardholder Data Protection",
+    "content": "Protection methods such as encryption, truncation, masking, and hashing are critical components of cardholder data protection. If cardholder data is shared or stored, it must be protected against unauthorized access. Do not store sensitive authentication data (SAD) after authorization (e.g. CVV or PIN details). Keep primary account numbers (PAN) unreadable wherever stored by using strong cryptography with associated key-management processes and procedures.",
+    "source": "PCI DSS Standard Document"
+  },
+  {
+    "id": "PCI_REQ_4",
+    "title": "Encrypt transmission of cardholder data across open, public networks",
+    "regulation": "PCI DSS",
+    "article": "Requirement 4.1",
+    "category": "Transmission Security",
+    "content": "Use strong cryptography and security protocols (for example, TLS, IPsec, SSH, etc.) to safeguard sensitive cardholder data during transmission over open, public networks (including the Internet, wireless technologies like WEP/WPA, cellular, etc.). Weak encryption algorithms or deprecated protocols (such as SSL v3, WEP, MD5 for authentication) must be avoided to prevent interception by malicious actors.",
+    "source": "PCI DSS Standard Document"
+  }
+]

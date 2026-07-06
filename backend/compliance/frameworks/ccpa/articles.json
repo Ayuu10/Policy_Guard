@@ -1,0 +1,29 @@
+[
+  {
+    "id": "CCPA_SEC_1798_100",
+    "title": "General Duties of Businesses",
+    "regulation": "CCPA",
+    "article": "Section 1798.100",
+    "category": "Notice",
+    "content": "A business that controls the collection of a consumer's personal information shall, at or before the point of collection, inform consumers as to: the categories of personal information to be collected and the purposes for which the categories of personal information are collected or used and whether that information is sold or shared. A business shall not collect additional categories of personal information or use personal information collected for additional purposes that are incompatible with the disclosed purpose without providing the consumer with notice.",
+    "source": "Official CCPA text"
+  },
+  {
+    "id": "CCPA_SEC_1798_105",
+    "title": "Consumer's Right to Delete Personal Information",
+    "regulation": "CCPA",
+    "article": "Section 1798.105",
+    "category": "Consumer Rights",
+    "content": "A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer. A business that receives a verifiable consumer request to delete the consumer's personal information shall delete the consumer's personal information from its records, and direct any service providers or contractors to delete the consumer's personal information from their records, unless it is necessary for the business or service provider to maintain the consumer's personal information under legal exceptions.",
+    "source": "Official CCPA text"
+  },
+  {
+    "id": "CCPA_SEC_1798_120",
+    "title": "Consumer's Right to Opt-Out of Sale or Sharing",
+    "regulation": "CCPA",
+    "article": "Section 1798.120",
+    "category": "Opt-Out Rights",
+    "content": "A consumer shall have the right, at any time, to direct a business that sells or shares personal information about the consumer to third parties not to sell or share the consumer's personal information. This right may be referred to as the right to opt-out. A business that sells or shares personal information shall provide a clear and conspicuous link on the business's internet homepage, titled 'Do Not Sell or Share My Personal Information,' that enables a consumer, or a person authorized by the consumer, to opt-out of the sale or sharing of the consumer's personal information.",
+    "source": "Official CCPA text"
+  }
+]

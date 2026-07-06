@@ -1,0 +1,13 @@
+{
+  "compliant": [
+    "We collect cookies to track user interactions and store site preferences.",
+    "Your data is processed based on your consent, which you can withdraw at any time.",
+    "We retain personal data for a period of 12 months after your last active session.",
+    "You have the right to access, rectify, or delete your personal data.",
+    "All communications are secured using SSL/TLS encryption protocols."
+  ],
+  "non_compliant": [
+    "We process whatever data we feel like without telling anyone.",
+    "We don't need your agreement to track your activity across the web."
+  ]
+}

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "UK_GDPR_COOKIE_NOTICE",
+    "title": "Cookie Notice Clause",
+    "severity": "medium",
+    "category": "Transparency",
+    "regulation": "UK GDPR",
+    "article": "Article 12",
+    "description": "The policy should inform users about the use of cookies and tracking technologies.",
+    "fix": "Add a clear statement indicating if and how cookies or tracking technologies are used, and provide a link to your Cookie Policy.",
+    "references": ["Article 12 UK GDPR"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["cookie", "cookies", "tracking pixel", "web beacon", "local storage"]
+    }
+  },
+  {
+    "id": "UK_GDPR_CONSENT_METHOD",
+    "title": "Consent Mechanism",
+    "severity": "high",
+    "category": "Consent",
+    "regulation": "UK GDPR",
+    "article": "Article 7",
+    "description": "The policy must outline how explicit consent is obtained from data subjects.",
+    "fix": "Add a section explaining that processing is based on consent, and detail how users can withdraw consent at any time.",
+    "references": ["Article 7 UK GDPR"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["consent", "opt-in", "agree", "permission", "accept our terms"]
+    }
+  },
+  {
+    "id": "UK_GDPR_DATA_RETENTION",
+    "title": "Data Retention Policy",
+    "severity": "medium",
+    "category": "Storage Limitation",
+    "regulation": "UK GDPR",
+    "article": "Article 5(1)(e)",
+    "description": "The policy must specify the criteria used to determine the retention period for personal data.",
+    "fix": "Define explicit retention periods or state that personal data is only kept as long as necessary for the specified purposes.",
+    "references": ["Article 5(1)(e) UK GDPR"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["retain", "retention", "period", "how long", "store your data"]
+    }
+  },
+  {
+    "id": "UK_GDPR_SUBJECT_RIGHTS",
+    "title": "Data Subject Rights",
+    "severity": "high",
+    "category": "Data Subject Rights",
+    "regulation": "UK GDPR",
+    "article": "Articles 15-22",
+    "description": "The policy must inform users of their rights to access, rectify, erase, and restrict processing of their personal data.",
+    "fix": "Add a dedicated section detailing user rights (access, rectification, erasure/deletion, portability, objection) and explain how users can exercise these rights.",
+    "references": ["Article 15 UK GDPR", "Article 17 UK GDPR"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["right to", "access your", "delete", "erasure", "rectify", "correction", "portability"]
+    }
+  },
+  {
+    "id": "UK_GDPR_DATA_SECURITY",
+    "title": "Technical and Organizational Security Measures",
+    "severity": "critical",
+    "category": "Security",
+    "regulation": "UK GDPR",
+    "article": "Article 32",
+    "description": "The policy must state that appropriate security measures are implemented to protect personal data.",
+    "fix": "Include details about security controls, such as SSL/TLS encryption, access controls, firewalls, and regular security audits.",
+    "references": ["Article 32 UK GDPR"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["security", "encryption", "encrypt", "secure", "safeguard", "protect"]
+    }
+  }
+]

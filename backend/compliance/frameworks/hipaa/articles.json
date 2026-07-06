@@ -1,0 +1,20 @@
+[
+  {
+    "id": "HIPAA_CFR_164_312",
+    "title": "Technical Safeguards",
+    "regulation": "HIPAA",
+    "article": "45 CFR Section 164.312",
+    "category": "Security",
+    "content": "A covered entity or business associate must implement technical safeguards that protect electronic protected health information (ePHI) from unauthorized access or transmission. Controls must include: Unique User Identification and Emergency Access Procedures. Transmission Security: Implement technical security measures to guard against unauthorized access to electronic protected health information that is being transmitted over an electronic communications network. Encryption: Implement a mechanism to encrypt and decrypt electronic protected health information whenever deemed appropriate to safeguard data at rest and in transit.",
+    "source": "HIPAA Administrative Simplification Rules"
+  },
+  {
+    "id": "HIPAA_CFR_164_524",
+    "title": "Access of individuals to protected health information",
+    "regulation": "HIPAA",
+    "article": "45 CFR Section 164.524",
+    "category": "Patient Rights",
+    "content": "An individual has a right of access to inspect and obtain a copy of protected health information about the individual in a designated record set, for as long as the protected health information is maintained in the designated record set. The covered entity must provide the access requested, including in electronic form if requested. The covered entity must act on a request for access no later than 30 days after receipt of the request by providing the access or a written denial containing the reason.",
+    "source": "HIPAA Administrative Simplification Rules"
+  }
+]

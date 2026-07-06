@@ -1,0 +1,9 @@
+{
+  "compliant": [
+    "Patient health records and PHI are transmitted securely using SSH/TLS.",
+    "Patients may request access to view or copy their health info."
+  ],
+  "non_compliant": [
+    "Medical scans are accessible on public folders without credentials."
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "CCPA_OPT_OUT",
+    "title": "Do Not Sell / Share Link",
+    "severity": "high",
+    "category": "Opt-Out Rights",
+    "regulation": "CCPA",
+    "article": "Section 1798.120",
+    "description": "The policy must disclose whether user personal information is sold or shared and explain the right to opt-out.",
+    "fix": "Add a section clarifying data selling practices and provide a 'Do Not Sell or Share My Personal Information' option.",
+    "references": ["CCPA 1798.120"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["do not sell", "opt-out", "sell my personal", "share my personal"]
+    }
+  },
+  {
+    "id": "CCPA_RIGHT_TO_DELETE",
+    "title": "Right to Request Deletion",
+    "severity": "high",
+    "category": "Consumer Rights",
+    "regulation": "CCPA",
+    "article": "Section 1798.105",
+    "description": "The policy must inform California consumers of their right to request deletion of their personal information.",
+    "fix": "Specify that consumers have the right to request deletion and explain how they can submit such requests.",
+    "references": ["CCPA 1798.105"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["delete your", "deletion request", "request to delete"]
+    }
+  }
+]

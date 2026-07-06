@@ -1,0 +1,32 @@
+[
+  {
+    "id": "HIPAA_PHI_SECURITY",
+    "title": "PHI Security & Encryption",
+    "severity": "critical",
+    "category": "Security",
+    "regulation": "HIPAA",
+    "article": "45 CFR Section 164.312",
+    "description": "Protected Health Information (PHI) must be secured and encrypted in transit and at rest.",
+    "fix": "Add details regarding secure transmission, encryption controls (AES-256), and access permissions for health data.",
+    "references": ["45 CFR 164.312"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["encryption", "encrypt", "secure transmission", "protect health info", "phi security"]
+    }
+  },
+  {
+    "id": "HIPAA_PATIENT_ACCESS",
+    "title": "Patient Access Rights",
+    "severity": "high",
+    "category": "Patient Rights",
+    "regulation": "HIPAA",
+    "article": "45 CFR Section 164.524",
+    "description": "Patients have a right to inspect and obtain a copy of their protected health information.",
+    "fix": "Include a section explaining patient rights to access their medical records and health history.",
+    "references": ["45 CFR 164.524"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["access medical record", "right to inspect", "request health info", "copy of your medical"]
+    }
+  }
+]

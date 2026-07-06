@@ -1,0 +1,9 @@
+{
+  "compliant": [
+    "You have the right to opt-out of the sale of your personal information.",
+    "Consumers can submit a request to delete their collected information."
+  ],
+  "non_compliant": [
+    "We share and sell all user profiles with advertising networks automatically."
+  ]
+}

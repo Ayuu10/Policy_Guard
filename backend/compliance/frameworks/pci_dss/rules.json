@@ -1,0 +1,32 @@
+[
+  {
+    "id": "PCI_CARD_DATA_SECURITY",
+    "title": "Cardholder Data Security",
+    "severity": "critical",
+    "category": "Cardholder Data Protection",
+    "regulation": "PCI DSS",
+    "article": "Requirement 3",
+    "description": "Cardholder data (such as PAN, card number) must be encrypted and protected.",
+    "fix": "Disclose that cardholder data is encrypted and indicate that sensitive authentication data (e.g., CVV) is never stored.",
+    "references": ["Requirement 3 PCI DSS"],
+    "check": {
+      "type": "required_pattern",
+      "patterns": ["cardholder data", "card details", "credit card", "debit card", "primary account number", "encrypt PAN"]
+    }
+  },
+  {
+    "id": "PCI_WEAK_ENCRYPTION",
+    "title": "Use of Weak Hashing/Protocols",
+    "severity": "critical",
+    "category": "Transmission Security",
+    "regulation": "PCI DSS",
+    "article": "Requirement 4.1",
+    "description": "Strong cryptography must be used to protect cardholder data during transmission. The use of weak algorithms (MD5, WEP) is forbidden.",
+    "fix": "Discontinue use of weak algorithms like MD5 or WEP and upgrade to TLS 1.2 or higher.",
+    "references": ["Requirement 4.1 PCI DSS"],
+    "check": {
+      "type": "forbidden_pattern",
+      "patterns": ["md5 hashing", "wep encryption", "use md5", "use wep", "ssl v3"]
+    }
+  }
+]
