@@ -18,18 +18,36 @@ jobs:
           python-version: '3.12'
           cache: 'pip'
 
+      - name: Install PyTorch (CPU-only, faster install)
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install -r backend/requirements.txt
           pip install pytest
 
-      - name: Run lightweight backend tests (no ML model downloads)
+      - name: Cache Hugging Face models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-${{ runner.os }}-all-MiniLM-L6-v2
+
+      - name: Cache NLTK data
+        uses: actions/cache@v4
+        with:
+          path: ~/nltk_data
+          key: nltk-punkt-${{ runner.os }}
+
+      - name: Pre-download NLTK data
+        run: python -c "import nltk; nltk.download('punkt_tab')"
+
+      - name: Run backend tests
         env:
           TESTING: "True"
         run: |
-          pytest backend/tests/test_auth.py backend/tests/test_projects.py backend/tests/test_documents.py -v
+          pytest backend/tests/
 
   frontend-checks:
     runs-on: ubuntu-latest
@@ -46,7 +64,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd frontend
-          npm ci --legacy-peer-deps
+          npm install --legacy-peer-deps
 
       - name: Verify production build
         run: |
