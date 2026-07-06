@@ -32,8 +32,10 @@ async function request(endpoint: string, options: RequestOptions = {}) {
 
   if (response.status === 401) {
     localStorage.removeItem('token');
-    window.location.href = '/login';
-    throw new Error('Unauthorized');
+    if (window.location.pathname !== '/login') {
+      window.location.href = '/login';
+    }
+    throw new Error('Incorrect username or password');
   }
 
   if (!response.ok) {
