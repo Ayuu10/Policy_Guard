@@ -14,8 +14,9 @@ RUN apt-get update && \
 # Copy requirements from backend directory context
 COPY requirements.txt ./
 
-# Install Python dependencies
+# Install Python dependencies (install CPU-only PyTorch first to save memory and disk space)
 RUN pip install --upgrade pip && \
+    pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu && \
     pip install --no-cache-dir -r requirements.txt
 
 # Download NLTK punkt and punkt_tab tokenizers
