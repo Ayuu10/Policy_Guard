@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Shield, Server, Check, Wifi, WifiOff, Moon, Sun } from 'lucide-react';
+import { Shield, Server, Check, Wifi, WifiOff } from 'lucide-react';
 
 const FRAMEWORKS = [
   { value: 'GDPR',    label: 'GDPR (EU General Data Protection)' },

@@ -5,9 +5,7 @@ import {
   Users, 
   FolderGit2, 
   FileText, 
-  Database, 
   Cpu, 
-  RefreshCw,
   HardDrive,
   Settings,
   PlusCircle,
@@ -21,7 +19,6 @@ export const Admin: React.FC = () => {
   const [frameworks, setFrameworks] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const [refreshing, setRefreshing] = useState(false);
   const [activeTab, setActiveTab] = useState<'metrics' | 'creator'>('metrics');
 
   // Framework Creator State
@@ -71,18 +68,12 @@ export const Admin: React.FC = () => {
       setError(err.message || 'Failed to load system admin metrics. Verify you are logged in as admin.');
     } finally {
       setLoading(false);
-      setRefreshing(false);
     }
   };
 
   useEffect(() => {
     fetchStatsAndFrameworks();
   }, []);
-
-  const handleRefresh = () => {
-    setRefreshing(true);
-    fetchStatsAndFrameworks();
-  };
 
   const handleSaveFramework = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,13 +86,10 @@ export const Admin: React.FC = () => {
       const parsedRules = JSON.parse(rulesJSON);
       const parsedArticles = JSON.parse(articlesJSON);
 
-      const res = await api.request('/api/admin/frameworks', {
-        method: 'POST',
-        body: {
-          framework_name: frameworkName,
-          rules: parsedRules,
-          articles: parsedArticles
-        }
+      const res = await api.upsertFramework({
+        framework_name: frameworkName,
+        rules: parsedRules,
+        articles: parsedArticles
       });
 
       setActionSuccess(res.message || 'Framework saved successfully!');
@@ -118,10 +106,7 @@ export const Admin: React.FC = () => {
     setActionSuccess('');
     setError('');
     try {
-      const res = await api.request('/api/admin/reindex', {
-        method: 'POST',
-        body: { framework_name: fw }
-      });
+      const res = await api.reindexFramework({ framework_name: fw });
       setActionSuccess(res.message || `Re-indexed ${fw} successfully!`);
       fetchStatsAndFrameworks();
     } catch (err: any) {

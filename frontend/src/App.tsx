@@ -41,7 +41,7 @@ const AdminRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     );
   }
 
-  return isAuthenticated && user?.role === 'admin' ? (
+  return isAuthenticated && user?.username === 'admin' ? (
     <Layout>{children}</Layout>
   ) : (
     <Navigate to="/" replace />

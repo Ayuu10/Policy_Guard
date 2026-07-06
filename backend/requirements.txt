@@ -1,15 +1,14 @@
 fastapi
-uvicorn
+uvicorn[standard]
 sqlalchemy
 psycopg2-binary
 pydantic[email]
 python-jose[cryptography]
+bcrypt
 passlib[bcrypt]
 python-multipart
 python-dotenv
-pytest
 httpx
-torch
 sentence-transformers
 nltk
 numpy

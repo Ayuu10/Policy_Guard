@@ -48,7 +48,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
     { name: 'Document Analysis', path: '/analysis', icon: UploadCloud },
     { name: 'Regulatory Chat', path: '/chat', icon: MessageSquare },
     { name: 'Reports', path: '/reports', icon: ShieldAlert },
-    ...(user?.role === 'admin' ? [{ name: 'Admin Console', path: '/admin', icon: BarChart3 }] : []),
+    ...(user?.username === 'admin' ? [{ name: 'Admin Console', path: '/admin', icon: BarChart3 }] : []),
     { name: 'Settings', path: '/settings', icon: Settings },
   ];
 

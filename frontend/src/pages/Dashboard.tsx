@@ -68,8 +68,6 @@ export const Dashboard: React.FC = () => {
         analyses.reduce((acc, a) => acc + ((a.scores?.[0]?.overall_score ?? 0) * 100), 0) / analyses.length
       )
     : null;
-  const totalViolations = analyses.reduce((acc, a) => acc + (a.findings?.length || 0), 0);
-
   // Framework distribution from analyses
   const frameworkCounts: Record<string, number> = {};
   analyses.forEach(a => {

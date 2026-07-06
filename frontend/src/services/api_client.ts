@@ -73,6 +73,8 @@ export const api = {
   getFrameworks: () => request('/api/frameworks'),
   getAnalyses: () => request('/api/analyses'),
   getAdminStats: () => request('/api/admin/stats'),
+  upsertFramework: (body: any) => request('/api/admin/frameworks', { method: 'POST', body }),
+  reindexFramework: (body: any) => request('/api/admin/reindex', { method: 'POST', body }),
 
   // Search
   searchRegistry: (q: string, regulation: string) => 
