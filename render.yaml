@@ -4,7 +4,7 @@ services:
     name: policyguard-backend
     env: docker
     dockerContext: backend
-    dockerfilePath: Dockerfile
+    dockerfilePath: backend/Dockerfile
     plan: free
     envVars:
       - key: DATABASE_URL
@@ -28,7 +28,7 @@ services:
     name: policyguard-frontend
     env: docker
     dockerContext: frontend
-    dockerfilePath: Dockerfile
+    dockerfilePath: frontend/Dockerfile
     plan: free
     envVars:
       - key: VITE_API_URL
