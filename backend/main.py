@@ -32,36 +32,37 @@ async def lifespan(app: FastAPI):
     except Exception as migration_err:
         logger.error(f"Failed to auto-migrate database table: {migration_err}")
 
-    # Seed default users
-    try:
-        from backend.db.session import SessionLocal
-        from backend.models.user import User
-        from backend.core.security import get_password_hash
-        db = SessionLocal()
-        admin_user = db.query(User).filter(User.username == "admin").first()
-        if not admin_user:
-            logger.info("Seeding default admin/admin user...")
-            db.add(User(
-                username="admin",
-                email="admin@policyguard.ai",
-                password_hash=get_password_hash("admin"),
-                role="admin"
-            ))
-            db.commit()
+    # Seed default users (only in non-testing environments)
+    if not ("PYTEST_CURRENT_TEST" in os.environ or os.getenv("TESTING") == "True"):
+        try:
+            from backend.db.session import SessionLocal
+            from backend.models.user import User
+            from backend.core.security import get_password_hash
+            db = SessionLocal()
+            admin_user = db.query(User).filter(User.username == "admin").first()
+            if not admin_user:
+                logger.info("Seeding default admin/admin user...")
+                db.add(User(
+                    username="admin",
+                    email="admin@policyguard.ai",
+                    password_hash=get_password_hash("admin"),
+                    role="admin"
+                ))
+                db.commit()
 
-        test_user = db.query(User).filter(User.username == "test1").first()
-        if not test_user:
-            logger.info("Seeding default test1/test1 user...")
-            db.add(User(
-                username="test1",
-                email="test1@test1.com",
-                password_hash=get_password_hash("test1"),
-                role="user"
-            ))
-            db.commit()
-        db.close()
-    except Exception as seed_err:
-        logger.error(f"Failed to seed default users: {seed_err}")
+            test_user = db.query(User).filter(User.username == "test1").first()
+            if not test_user:
+                logger.info("Seeding default test1/test1 user...")
+                db.add(User(
+                    username="test1",
+                    email="test1@test1.com",
+                    password_hash=get_password_hash("test1"),
+                    role="user"
+                ))
+                db.commit()
+            db.close()
+        except Exception as seed_err:
+            logger.error(f"Failed to seed default users: {seed_err}")
 
     if "PYTEST_CURRENT_TEST" in os.environ or os.getenv("TESTING") == "True":
         logger.info("Skipping RAG indexing during test runs.")
