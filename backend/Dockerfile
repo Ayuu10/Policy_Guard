@@ -18,8 +18,8 @@ COPY requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Download NLTK punkt tokenizer
-RUN python -m nltk.downloader punkt
+# Download NLTK punkt and punkt_tab tokenizers
+RUN python -m nltk.downloader punkt punkt_tab
 
 # Copy all backend files
 COPY . ./backend/
