@@ -47,13 +47,12 @@ else:
                 logger.error(f"Failed to auto-create database: {create_err}. Falling back to SQLite.")
                 db_url = "sqlite:///./policyguard.db"
                 engine = create_engine(db_url, connect_args={"check_same_thread": False})
-                from backend.db.base import Base
-                Base.metadata.create_all(bind=engine)
     else:
         engine = create_engine(db_url, connect_args={"check_same_thread": False})
-        if db_url.startswith("sqlite"):
-            from backend.db.base import Base
-            Base.metadata.create_all(bind=engine)
+
+    # Always create tables on startup in production/dev (both Postgres and SQLite)
+    from backend.db.base import Base
+    Base.metadata.create_all(bind=engine)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
