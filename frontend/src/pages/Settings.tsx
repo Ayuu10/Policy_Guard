@@ -35,7 +35,8 @@ export const Settings: React.FC = () => {
   // Check if Groq key is configured via env (backend-side; we just check health)
   const [apiStatus, setApiStatus] = useState<'checking' | 'online' | 'offline'>('checking');
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/health')
+    const backendUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000';
+    fetch(`${backendUrl}/health`)
       .then(r => r.ok ? setApiStatus('online') : setApiStatus('offline'))
       .catch(() => setApiStatus('offline'));
   }, []);
