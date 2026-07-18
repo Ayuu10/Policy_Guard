@@ -67,7 +67,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* Sidebar Navigation */}
       <aside className={`
-        fixed inset-y-0 left-0 z-40 w-64 bg-primary-900 text-slate-100 flex flex-col transform transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-auto md:z-auto
+        fixed inset-y-0 left-0 z-40 w-64 bg-primary-900 text-slate-100 flex flex-col transform transition-transform duration-300 ease-in-out md:translate-x-0
         ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}
       `}>
         {/* Sidebar Title */}
@@ -136,7 +136,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col min-w-0 overflow-x-hidden">
+      <main className="flex-1 flex flex-col min-w-0 overflow-x-hidden md:pl-64">
         <div className="flex-1 p-6 md:p-8 space-y-6">
           {children}
         </div>
